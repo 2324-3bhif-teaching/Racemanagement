@@ -29,6 +29,15 @@ Es gibt keine Verwaltung der Autos und der Bedienung. Es ist meist unklar welche
 === Funktionale Anforderungen
 ==== Use-case diagram
 
+.Use-case diagram
+[%collapsible]
+====
+[plantuml,usecase.png]
+----
+include::plantuml/usecase1.plantuml[]
+----
+====
+
 ==== Mockup
 .Home
 [%collapsible]

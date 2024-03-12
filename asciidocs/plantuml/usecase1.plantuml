@@ -1,0 +1,14 @@
+@startuml
+
+left to right direction
+
+actor Admin as Admin
+rectangle "Verwaltungssystem" {
+    usecase "Autos auswählen" as AutosAuswählen
+    usecase "Bedienung  auswählen" as BedienungAuswählen
+     usecase "Hindernis  auswählen" as HindernisAuswählen
+}
+
+Admin --> "Verwaltungssystem"
+
+@enduml
