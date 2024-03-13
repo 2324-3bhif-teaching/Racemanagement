@@ -14,7 +14,10 @@ Authors:
 
 == Beschreibung der Ausgangslage
 
+=== Ausgangssituation
 
+
+Unsere Schule veranstaltet am Tag der offenen Tür Rennen mit ferngesteuerten Autos. Die Rennen finden an verschiedenen Stationen statt. An den Stationen gibt es verschiedene Autos und Bedienungen. Die Autos und Bedienungen werden von den Teilnehmern und Teilnehmerinnen benutzt. Unsere Schule möchte eine App entwickeln, die die Verwaltung der Autos und der Bedienung an den Stationen ermöglicht.
 
 == Ist-Zustand
 
