@@ -1,0 +1,9 @@
+= Working Hours
+
+== List of Working Hours
+
+|===
+| Date | Description | Duration (min) | Issue Number
+
+| 16/04/2024 | Create Working Hours List | 15 | https://github.com/2324-3bhif-teaching/Racemanagement/issues/10[#10]
+|===
