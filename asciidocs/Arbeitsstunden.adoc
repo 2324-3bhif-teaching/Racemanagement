@@ -3,7 +3,9 @@
 == List of Working Hours
 
 |===
-| Date | Description | Duration (min) | Issue Number
+| Date | Description | Duration (min) | Collaborator | Issue Number
 
-| 16/04/2024 | Create Working Hours List | 15 | https://github.com/2324-3bhif-teaching/Racemanagement/issues/10[#10]
+| 16/04/2024 | Create Working Hours List | 15 | SaydamArda| https://github.com/2324-3bhif-teaching/Racemanagement/issues/10[#10]
+| 16/04/2024 | Setup Project Structure | 40 | SaydamArda| https://github.com/2324-3bhif-teaching/Racemanagement/issues/4[#4] 
+
 |===
