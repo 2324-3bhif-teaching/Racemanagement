@@ -1,0 +1,19 @@
+@startuml
+
+class Station {
+    -Id: Number
+    -Name: String
+    
+}
+
+class Equipment {
+    -equipmentId: Number
+    -name: String
+    -isUsed: Boolean
+    -stationId: Number
+}
+
+
+Station "1" --> "1..*" Equipment
+Equipment "1" --> "1" Station
+@enduml
