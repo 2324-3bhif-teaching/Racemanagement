@@ -84,9 +84,9 @@ Das Ziel ist es, eine App zu entwickeln, die die Verwaltung der Autos und der Be
 
 == Rahmenbedingungen
 
-Programmiersprache: ??
+Programmiersprache: Typescript,HTML
 
-Datenbank: ??
+Datenbank: SQLite
 
 == Lieferumfang
 
