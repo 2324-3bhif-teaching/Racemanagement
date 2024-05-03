@@ -8,7 +8,7 @@
   },
   "scripts": {
     "server-dev": "npx nodemon app.ts",
-    "start": "npx ts-node ./app.ts"
+    "start": "tsx ./src/app.ts"
   },
   "author": "SaydamArda",
   "license": "ISC",
