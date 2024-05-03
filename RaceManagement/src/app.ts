@@ -5,6 +5,7 @@
 // import modules
 import express from "express";
 import cors from "cors";
+import path from 'path';
 
 // create express application
 const app = express();
@@ -12,6 +13,8 @@ const app = express();
 // mount middleware
 app.use(cors());
 app.use(express.json());    // parse JSON data and place result in req.body
+
+app.use(express.static(path.join(__dirname, '..','public')));
 
 
 // start http server
