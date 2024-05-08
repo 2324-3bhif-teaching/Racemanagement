@@ -7,5 +7,6 @@
 
 | 16/04/2024 | Create Working Hours List | 15 | SaydamArda| https://github.com/2324-3bhif-teaching/Racemanagement/issues/10[#10]
 | 16/04/2024 | Setup Project Structure | 40 | SaydamArda| https://github.com/2324-3bhif-teaching/Racemanagement/issues/4[#4] 
-
+| 25/04/2024 | Worked on Mockup, Pflichtenheft | 40 | KurticAdemir | https://github.com/2324-3bhif-teaching/Racemanagement/issues/20[#20] https://github.com/2324-3bhif-teaching/Racemanagement/issues/21[#21]
+| 03/05/2024 | Worked on Frontend - adding List, working on structure | 120 | SaydamArda | https://github.com/2324-3bhif-teaching/Racemanagement/issues/16[#16]
 |===
