@@ -56,6 +56,22 @@ image::images/img_1.png[]
 Bei der Stationsübersicht sind alle Autos und Bedienungen aufgelistet. Mit dem Plus-Button kann der Benutzer neue Autos und Bedienungen hinzufügen. Die Autos und Bedienungen sind mittels Drop-Down-Menüs auswählbar. Nach dem der Benutzer / die Benutzerin die Auswahl getroffen hat, kann mittels Start-Button das Rennen beginnen.
 ====
 
+.New Home
+[%collapsible]
+====
+image::images/MockupHome.png[]
+Links soll eine Liste mit den verfügbaren Autos sein.
+Indem man ein Auto auswählt und auf den "+" Button drückt öffnet sich das Menü zum Mappen(siehe MapMenü Mockup).
+Oben rechts befindet sich ein Button zum Downloaden einer EXCEL datei mit den gemappten Daten.
+====
+
+.Map Menü
+[%collapsible]
+====
+image::images/MapMenue.png[]
+Drückt man auf den "+" Button bekommt man nun eine Auswahl an Steuergeräten die man mit den Autos mappen kann.
+Man wählt ein Gerät aus und drückt den Map Button um den Vorgang abzuschließen.
+
 
 
 === Nicht-funktionale Anforderungen
