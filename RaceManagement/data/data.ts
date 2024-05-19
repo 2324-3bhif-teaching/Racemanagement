@@ -29,13 +29,43 @@ export class DB {
         await connection.run('rollback;');
     }
 
+
+    public static async ensureSampleDataInserted(connection: Database): Promise<void> {
+        await connection.run('delete from CAR');
+        await connection.run('delete from OBSTACLE');
+        await connection.run('delete from INPUT');
+
+        await connection.run('insert into CAR (id, name) values (1, "Car1")');
+        await connection.run('insert into CAR (id, name) values (2, "Car2")');
+
+        await connection.run('insert into OBSTACLE (id, name) values (1, "Obstacle1")');
+        await connection.run('insert into OBSTACLE (id, name) values (2, "Obstacle2")');
+
+        await connection.run('insert into INPUT (id, name) values (1, "Input1")');
+        await connection.run('insert into INPUT (id, name) values (2, "Input2")');
+    }
+
+
+
     private static async ensureTablesCreated(connection: Database): Promise<void> {
-        if (this.initialTableCreationDone) {
-            return;
-        }
-
-        // TODO
-
-        this.initialTableCreationDone = true;
+    
+        await connection.run(`CREATE TABLE IF NOT EXISTS CAR   
+        (
+            id           INTEGER NOT NULL primary key,
+            name        TEXT    NOT NULL
+        ) strict`
+    );
+        await connection.run(`CREATE TABLE IF NOT EXISTS OBSTACLE
+        (
+            id           INTEGER NOT NULL primary key,
+            name        TEXT    NOT NULL
+        ) strict`
+    );
+        await connection.run(`CREATE TABLE IF NOT EXISTS INPUT
+        (
+            id           INTEGER NOT NULL primary key,
+            name        TEXT    NOT NULL
+        ) strict`
+    );
     }
 }
