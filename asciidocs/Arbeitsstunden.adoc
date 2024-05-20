@@ -11,5 +11,6 @@
 | 03/05/2024 | Worked on Frontend - adding List, working on structure | 120 | SaydamArda | https://github.com/2324-3bhif-teaching/Racemanagement/issues/16[#16]
 | 08/05/2024 | Worked on setting up Database | 60 | SaydamArda | https://github.com/2324-3bhif-teaching/Racemanagement/issues/6[#6]
 | 10/05/2024 | Worked on Backend - adding List, working on structure | 80 | SaydamArda | https://github.com/2324-3bhif-teaching/Racemanagement/issues/25[#25]
-| 15/05/2024 | Implemented Database with sample data | 20 | SaydamArda | https://github.com/2324-3bhif-teaching/Racemanagement/issues/6[#6]
+| 18/05/2024 | Implemented Database with sample data | 20 | SaydamArda | https://github.com/2324-3bhif-teaching/Racemanagement/issues/6[#6]
+| 20/05/2024 | Worked on Frontend and Backend - added Lists and Drag & Drop feature  | 120 | SaydamArda | https://github.com/2324-3bhif-teaching/Racemanagement/issues/27[#27]
 |===
