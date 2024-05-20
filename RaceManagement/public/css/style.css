@@ -92,3 +92,33 @@ h1 {
 .button1 {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
+.horizontalList {
+  position: fixed;
+  right: 650px;
+  bottom: 150px; /* Adjust this value based on the footer height */
+  width: 100%;
+  padding: 10px;
+  border-color: #333;
+}
+
+.horizontal-list {
+  display: flex;
+  justify-content: center;
+}
+
+.horizontal-list li {
+  background-color: #f2f2f256;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 50px;
+    width: 100px;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+    border-color: #454545;
+    list-style-type: none; /* Add this line to remove the bullet points */
+    
+}
+/* Change color on hover */
+.horizontal-list li:hover {
+  background-color: #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
