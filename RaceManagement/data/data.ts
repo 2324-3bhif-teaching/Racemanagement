@@ -35,37 +35,42 @@ export class DB {
         await connection.run('delete from OBSTACLE');
         await connection.run('delete from INPUT');
 
-        await connection.run('insert into CAR (id, name) values (1, "Car1")');
-        await connection.run('insert into CAR (id, name) values (2, "Car2")');
+        await connection.run('insert into CAR (carId, carName) values (1, "Car1")');
+        await connection.run('insert into CAR (carId, carName) values (2, "Car2")');
+        await connection.run('insert into CAR (carId, carName) values (3, "Car3")');
 
-        await connection.run('insert into OBSTACLE (id, name) values (1, "Obstacle1")');
-        await connection.run('insert into OBSTACLE (id, name) values (2, "Obstacle2")');
 
-        await connection.run('insert into INPUT (id, name) values (1, "Input1")');
-        await connection.run('insert into INPUT (id, name) values (2, "Input2")');
+        await connection.run('insert into OBSTACLE (obstacleId, obstacleName) values (1, "Obstacle1")');
+        await connection.run('insert into OBSTACLE (obstacleId, obstacleName) values (2, "Obstacle2")');
+
+        await connection.run('insert into INPUT (inputId, inputName) values (1, "Input1")');
+        await connection.run('insert into INPUT (inputId, inputName) values (2, "Input2")');
     }
 
 
 
     private static async ensureTablesCreated(connection: Database): Promise<void> {
     
-        await connection.run(`CREATE TABLE IF NOT EXISTS CAR   
-        (
-            id           INTEGER NOT NULL primary key,
-            name        TEXT    NOT NULL
-        ) strict`
-    );
-        await connection.run(`CREATE TABLE IF NOT EXISTS OBSTACLE
-        (
-            id           INTEGER NOT NULL primary key,
-            name        TEXT    NOT NULL
-        ) strict`
-    );
-        await connection.run(`CREATE TABLE IF NOT EXISTS INPUT
-        (
-            id           INTEGER NOT NULL primary key,
-            name        TEXT    NOT NULL
-        ) strict`
-    );
+        await connection.run(
+            `create table if not exists Car (
+                carId INTEGER NOT NULL,
+                carName TEXT NOT NULL,
+                constraint PK_Car primary key (carId)
+            ) strict`
+        );
+        await connection.run(
+            `create table if not exists Obstacle (
+                obstacleId INTEGER NOT NULL,
+                obstacleName TEXT NOT NULL,
+                constraint PK_Obstacle primary key (obstacleId)
+            ) strict`
+        );
+        await connection.run(
+            `create table if not exists Input (
+                inputId INTEGER NOT NULL,
+                inputName TEXT NOT NULL,
+                constraint PK_Input primary key (inputId)
+            ) strict`
+        );
     }
 }

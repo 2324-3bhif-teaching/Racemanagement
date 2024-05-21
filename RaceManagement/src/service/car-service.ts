@@ -10,14 +10,14 @@ export class CarService extends ServiceBase{
     }
 
     public async getAllIds(): Promise<number[]> {
-        const stmt: Statement = await this.unit.prepare('select id from Car');
+        const stmt: Statement = await this.unit.prepare('select CarId from Car');
         const result = await stmt.all();
         return ServiceBase.unwrapAll<number>(result, 'id');
     }
 
-    public async getCars(): Promise<Car[]> {
+    public async getCars(): Promise<Car[] | null> {
         const stmt: Statement = await this.unit.prepare('SELECT * FROM Car');
         const result = await stmt.all();
-        return ServiceBase.unwrapAll<Car>(result, 'Car');
+        return ServiceBase.nullIfUndefined<Car[]>(await stmt.all<Car[]>());
     }
 }

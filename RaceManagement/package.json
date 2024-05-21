@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "server-dev": "npx nodemon app.ts",
-    "start": "tsx ./src/app.ts"
+    "start": "tsx ./src/app.ts",
+    "compile": "tsc ./public/index.ts"
   },
   "author": "SaydamArda",
   "license": "MIT",

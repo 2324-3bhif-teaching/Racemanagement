@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', (event) => {
     const dragStart = (event: DragEvent) => {
         if (event.target instanceof HTMLElement) {
@@ -14,6 +15,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     const dragOver = (event: DragEvent) => {
         event.preventDefault();
+        console.log('Drag over');
     };
 
     const drop = (event: DragEvent) => {
@@ -43,4 +45,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
         list.addEventListener('dragover', dragOver);
         list.addEventListener('drop', drop);
     });
+    console.log('Drag and drop initialized');
 });
+
