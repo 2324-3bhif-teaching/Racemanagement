@@ -10,7 +10,7 @@ carRouter.get('/all', async (req: Request, res: Response) => {
     const unit: Unit = await Unit.create(true);
     try{
         const carService: CarService = new CarService(unit);
-        const cars: Car[] = await carService.getCars();
+        const cars = await carService.getCars();
         res.status(StatusCodes.OK).json(cars);
     }catch (e) {
         console.error(e);
