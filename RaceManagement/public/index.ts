@@ -1,41 +1,5 @@
-import { fetchRestEndpoint } from "./css/fetchRestEndpoint";
-import {Car} from "../src/model/car-model"
 
-
-async function fetchCars(): Promise<Car[]>{
-    try{
-        return await fetchRestEndpoint('/api/cars/all', 'GET');
-    }catch (e) {
-        console.error(e);
-        throw e;
-    }
-}
-
-function fillList(cars: Car[]): void{
-    const list = document.getElementById('myList2');
-    if(list){
-        cars.forEach(car => {
-            list.innerHTML = ''; // Clear existing items
-            const li = document.createElement('li');
-            li.textContent = car.carName;
-            li.id = car.carId.toString();
-            li.draggable = true;
-            list.appendChild(li);
-        });
-    }
-}
-
-
-document.addEventListener('DOMContentLoaded', async () => {
-
-    try{
-        const cars = await fetchCars();
-        fillList(cars);
-    }catch (e) {
-        console.error(e);
-    }
-
-
+document.addEventListener('DOMContentLoaded', (event) => {
     const dragStart = (event: DragEvent) => {
         if (event.target instanceof HTMLElement) {
             event.dataTransfer?.setData('text/plain', event.target.id);
@@ -51,6 +15,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const dragOver = (event: DragEvent) => {
         event.preventDefault();
+        console.log('Drag over');
     };
 
     const drop = (event: DragEvent) => {
@@ -80,7 +45,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         list.addEventListener('dragover', dragOver);
         list.addEventListener('drop', drop);
     });
+    console.log('Drag and drop initialized');
 });
-
-
 
