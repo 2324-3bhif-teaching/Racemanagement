@@ -147,16 +147,17 @@ h1 {
 
 /* Download button styles */
 .btn {
-  background-color: DodgerBlue;
+  background-color: rgb(0, 0, 0);
   border: none;
   color: white;
   padding: 12px 30px;
   cursor: pointer;
   font-size: 20px;
   margin-top: 20px; /* Add margin to separate the button from the list */
+  margin-left: 870px;
 }
 
 /* Darker background on mouse-over */
 .btn:hover {
-  background-color: RoyalBlue;
+  background-color: rgb(58, 58, 58);
 }
