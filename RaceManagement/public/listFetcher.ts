@@ -2,6 +2,8 @@ import { fetchRestEndpoint } from "./css/fetchRestEndpoint";
 import { Car } from "../src/model/car-model";
 
 
+const addBtn = document.getElementById('addButton');
+
 export async function fetchCars(): Promise<Car[]> {
     try {
         return await fetchRestEndpoint('/api/cars/all', 'GET');
@@ -27,6 +29,7 @@ export function fillList(cars: Car[]): void {
     console.log('List filled');
 }
 
+
 document.addEventListener('DOMContentLoaded', async (event) => {
     try {
         const cars = await fetchCars();
@@ -34,4 +37,5 @@ document.addEventListener('DOMContentLoaded', async (event) => {
     } catch (e) {
         console.error(e);
     }
+    
 });
