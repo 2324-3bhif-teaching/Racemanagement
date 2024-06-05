@@ -1,19 +1,25 @@
 @startuml
+class Race {
+    -RaceId: Number
+}
 
-class Station {
-    -Id: Number
-    -Name: String
+class Car {
+    -carId: Number
+    -carName: String
     
 }
 
-class Equipment {
-    -equipmentId: Number
-    -name: String
-    -isUsed: Boolean
-    -stationId: Number
+class Obstacle {
+    -obstacleId: Number
+    -obstacleName: String
 }
 
+class Input {
+    -inputId: Number
+    -inputName: String
+}
 
-Station "1" --> "1..*" Equipment
-Equipment "1" --> "1" Station
+Input->Race
+Car->Race
+Obstacle->Race
 @enduml
