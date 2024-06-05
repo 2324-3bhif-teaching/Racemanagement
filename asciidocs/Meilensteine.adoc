@@ -3,7 +3,7 @@
 |===
 | Phase | Soll-Termin | Ergebnisse
 
-| Initiierung | 2403.2024 | Vollständigkeit Projektdokumente (Projektantrag, Projektauftrag, Pflichtenheft, Mockups, etc.)
+| Initiierung | 24.03.2024 | Vollständigkeit Projektdokumente (Projektantrag, Projektauftrag, Pflichtenheft, Mockups, etc.)
 | Planung | 05.04.2024 | Festlegung der Projektziele, -struktur und -organisation
 | Durchführung | 12.05.2024 | Datenbank aufgesetzt
 | Durchführung | 14.05 2024 | Autos werden angezeigt
