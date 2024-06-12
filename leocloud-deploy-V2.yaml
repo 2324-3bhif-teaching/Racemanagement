@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: race_management
+  namespace: student-a-saydam
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: race_management
+  template:
+    metadata:
+      labels:
+        app: race_management
+    spec:
+      containers:
+        - name: race_management
+          image: docker.io/saydamarda/race_management:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+              protocol: TCP
+          env:
+            - name: ASPNETCORE_URLS
+              value: http://+:3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: race_management-svc
+  namespace: student-a-saydam
+spec:
+  ports:
+    - port: 80
+      targetPort: 3000
+      protocol: TCP
+      name: http
+  selector:
+    app: race_management
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: race_management-ingress
+  namespace: student-a-saydam
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  rules:
+    - host: student.cloud.htl-leonding.ac.at
+      http:
+        paths:
+          - path: /a.saydam/race_management/(.*)$
+            pathType: Prefix
+            backend:
+              service:
+                name: race_management-svc
+                port:
+                  number: 80

@@ -1,8 +1,5 @@
 
 document.addEventListener('DOMContentLoaded', (event) => {
-    
-
-
     const dragStart = (event: DragEvent) => {
         if (event.target instanceof HTMLElement) {
             event.dataTransfer?.setData('text/plain', event.target.id);
@@ -35,8 +32,21 @@ document.addEventListener('DOMContentLoaded', (event) => {
             } else if (draggableElement && (dropzone.classList.contains('list') || dropzone.classList.contains('horizontal-list'))) {
                 dropzone.appendChild(draggableElement);
             }
+            saveListsState();
             event.dataTransfer?.clearData();
         }
+    };
+    const saveListsState = () => {
+        const lists = document.querySelectorAll('ul.list, ul.horizontal-list');
+        const allListsData: { [key: string]: string[] } = {};
+
+        lists.forEach((list, index) => {
+            const items = list.querySelectorAll('li');
+            const listData = Array.from(items).map(item => item.textContent || '');
+            allListsData[`list${index + 1}`] = listData;
+        });
+
+        localStorage.setItem('savedLists', JSON.stringify(allListsData));
     };
 
     document.querySelectorAll<HTMLElement>('li[draggable="true"]').forEach(item => {
@@ -52,24 +62,24 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const downloadBtn = document.getElementById('downloadBtn');
     if (downloadBtn) {
         downloadBtn.addEventListener('click', async () => {
-        const lists = document.querySelectorAll('ul.list, ul.horizontal-list');
-        const allListsData: { [key: string]: string[] } = {};
-    
-        lists.forEach((list, index) => {
-            const items = list.querySelectorAll('li');
-            const listData = Array.from(items).map(item => item.textContent || '');
-            allListsData[`list${index + 1}`] = listData;
+            const lists = document.querySelectorAll('ul.list, ul.horizontal-list');
+            const allListsData: { [key: string]: string[] } = {};
+
+            lists.forEach((list, index) => {
+                const items = list.querySelectorAll('li');
+                const listData = Array.from(items).map(item => item.textContent || '');
+                allListsData[`list${index + 1}`] = listData;
+            });
+
+            const json = JSON.stringify(allListsData, null, 2);
+            const blob = new Blob([json], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'all-lists.json';
+            a.click();
+            URL.revokeObjectURL(url);
         });
-    
-        const json = JSON.stringify(allListsData, null, 2);
-        const blob = new Blob([json], { type: 'application/json' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'all-lists.json';
-        a.click();
-        URL.revokeObjectURL(url);
-    });
-}
+    }
 });
 

@@ -59,7 +59,8 @@ h1 {
   padding: 10px;
   margin: 10px;
   flex: 1 1 auto; /* Make the items flexible and responsive */
-  max-width: 300px; /* Maximum width for each item */
+  max-width: 100px; /* Maximum width for each item */
+  max-height: 25px; /* Maximum height for each item */
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
   border-color: #333;
   list-style-type: none; /* Remove the bullet points */
@@ -112,6 +113,8 @@ h1 {
 
 /* Horizontal list styles */
 .horizontalList {
+  display: flex;
+  justify-content: space-around; /* This will space out the lists evenly */
   position: fixed;
   bottom: 150px; /* Adjust this value based on the footer height */
   width: 100%;
@@ -120,6 +123,10 @@ h1 {
   overflow-y: hidden; /* Hide vertical overflow */
   padding: 20px;
   box-sizing: border-box;
+  background-color: #f2f2f256;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+  border-color: #333;
+  border-radius: 5px;
 }
 
 .horizontal-list {
