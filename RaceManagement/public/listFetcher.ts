@@ -1,9 +1,11 @@
-import { fetchRestEndpoint } from "./css/fetchRestEndpoint";
-import { Car } from "../src/model/car-model";
+import { fetchRestEndpoint } from './fetchRestEndpoint';
+import { Car } from './model/car-model';
 
 async function fetchCars(): Promise<Car[]> {
     try {
+        console.log('Going to fetch..');
         const response = await fetchRestEndpoint('http://localhost:3000/api/cars/all', 'GET');
+        console.log(response);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
@@ -18,7 +20,7 @@ async function fetchCars(): Promise<Car[]> {
 export function fillList(cars: Car[]): void {
     const list = document.getElementById('myList2');
     if (list) {
-        list.innerHTML = ''; 
+        list.innerHTML = '';
         cars.forEach(car => {
             const item = document.createElement('li');
             item.textContent = car.carName; // Ensure carName is the correct property
@@ -35,6 +37,7 @@ export function fillList(cars: Car[]): void {
 
 async function main() {
     try {
+        console.log('Fetching cars..');
         const cars = await fetchCars();
         fillList(cars);
         console.log('Cars fetched', cars);
