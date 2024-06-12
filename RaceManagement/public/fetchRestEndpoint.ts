@@ -12,6 +12,13 @@ export async function fetchRestEndpoint(route: string, method: 'GET' |'POST' |'P
         throw error;
     }
     if (res.status !== 204) {
-        return await res.json();
+        let responseData = await res.json();
+        if (typeof responseData === 'string') {
+            responseData = responseData
+                .replace(/Car\w*/g, '🚗')
+                .replace(/Obstacle\w*/g, '🚧')
+                    .replace(/Input\w*/g, '🕹️');
+        }
+        return responseData;
     }
 }

@@ -1,5 +1,6 @@
 import { fetchRestEndpoint } from './fetchRestEndpoint';
-import { Car } from './model/car-model';
+import { Car } from '../src/model/car-model';
+
 
 async function fetchCars(): Promise<Car[]> {
     try {
@@ -17,7 +18,7 @@ async function fetchCars(): Promise<Car[]> {
     }
 }
 
-export function fillList(cars: Car[]): void {
+function fillList(cars: Car[]): void {
     const list = document.getElementById('myList2');
     if (list) {
         list.innerHTML = '';

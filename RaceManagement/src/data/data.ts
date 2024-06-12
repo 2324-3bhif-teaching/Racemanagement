@@ -1,7 +1,7 @@
 import { Database as Driver} from "sqlite3";
 import { open, Database } from "sqlite";
 
-const dbFileName = './data/race.db';
+const dbFileName = '.race.db';
 export class DB {
     private static initialTableCreationDone: boolean = false;
 
