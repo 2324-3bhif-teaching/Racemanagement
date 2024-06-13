@@ -2,7 +2,7 @@
 import express from "express";
 import cors from "cors";
 import path from 'path';
-import { DB } from './data/data';
+import { DB } from "./data/data";
 import { carRouter } from "./routers/car-router";
 
 // Create an instance of an Express application

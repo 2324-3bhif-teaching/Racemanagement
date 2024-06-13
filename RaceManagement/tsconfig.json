@@ -1,16 +1,12 @@
 {
+  "exclude": ["src","node_modules" ],
   "compilerOptions": {
-    "module": "ESNext",
-    "target": "es6",                    /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
-                     /* Specify what module code is generated. */
+    "target": "ES2022",                    /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
+    "module": "ES2022",               /* Specify what module code is generated. */
     "moduleResolution": "node",         /* Specify how TypeScript looks up a file from a given module specifier. */
     "esModuleInterop": true,            /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables `allowSyntheticDefaultImports` for type compatibility. */
     "strict": true,                     /* Enable all strict type-checking options. */
-    "outDir": "./public",               /* Redirect output structure to the directory. */
-    "rootDir": "./src",                 /* Specify the root directory of input files. */
-    "skipLibCheck": true,               /* Skip type checking of all declaration files. */
-    "forceConsistentCasingInFileNames": true /* Ensure that file names are consistent across the project. */
+    "sourceMap": true
   },
-  "include": ["src/**/*"],              /* Include all TypeScript files in the src directory. */
-  "exclude": ["node_modules", "public"] /* Exclude the node_modules and public directories. */
+  "include": ["**/*.ts"],
 }
