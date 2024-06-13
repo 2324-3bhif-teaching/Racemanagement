@@ -1,5 +1,6 @@
 import { Car } from '../src/model/car-model';
-
+import { Input } from '../src/model/input-model';
+import { Obstacle } from '../src/model/obstacle-model';
 
 function replaceStringsInData(data: any): any {
     if (typeof data === 'string') {
@@ -57,6 +58,34 @@ async function fetchCars(): Promise<Car[]> {
         throw e;
     }
 }
+
+async function fetchInputs(): Promise<Input[]> {
+    try {
+        console.log('Going to fetch..');
+        const response = await fetchRestEndpoint('http://localhost:3000/api/input/all', 'GET');
+        console.log(response);
+        const input = response as Input[];
+        return input;
+    } catch (e) {
+        console.error(e);
+        throw e;
+    }
+    
+}
+
+async function fetchObstacles(): Promise<Obstacle[]> {
+    try {
+        console.log('Going to fetch obstacles..');
+        const response = await fetchRestEndpoint('http://localhost:3000/api/obstacles/all', 'GET');
+        console.log(response);
+        const obstacles = response as Obstacle[];
+        return obstacles;
+    } catch (e) {
+        console.error(e);
+        throw e;
+    }
+}
+
 
 function fillList(cars: Car[]): void {
     const list = document.getElementById('myList2');
