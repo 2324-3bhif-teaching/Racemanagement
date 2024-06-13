@@ -22,7 +22,7 @@ export abstract class ServiceBase {
         return obj === null ? null : <T>obj[fieldName];
     }
 
-    protected static unwrapAll<T>(obj: any[], fieldName: string): T[] {
-        return obj.map(o => <T>o[fieldName]);
+    public static unwrapAll<T>(rows: any[], property?: string): T[] {
+        return rows.map(row => property ? row[property] : row);
     }
 }
