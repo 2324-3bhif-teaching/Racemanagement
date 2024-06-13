@@ -1,4 +1,4 @@
-import { Database as Driver} from "sqlite3";
+import { Database as Driver } from "sqlite3";
 import { open, Database } from "sqlite";
 
 const dbFileName = '.race.db';
@@ -37,7 +37,7 @@ export class DB {
 
         await connection.run('insert into CAR (carId, carName) values (1, "Car1")');
         await connection.run('insert into CAR (carId, carName) values (2, "Car2")');
-        await connection.run('insert into CAR (carId, carName) values (3, "Car3")');
+        await connection.run('insert into CAR (carId, carName) values (3, "Car4")');
 
 
         await connection.run('insert into OBSTACLE (obstacleId, obstacleName) values (1, "Obstacle1")');
