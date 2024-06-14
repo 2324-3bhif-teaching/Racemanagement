@@ -34,6 +34,7 @@
         
     </div>
     <button class="btn" id="downloadBtn">Map Station</button>
+    <button class="btn" id="addList">Add List</button> 
     <br>
     <!-- <button class="button button1" id="addButton" type="submit" name="loginButton">Add Item</button>
 -->
@@ -59,5 +60,18 @@
         <a href="mailto:a.saydam@students.htl-leonding.ac.at">Arda Saydam</a>
         <a href="mailto:a.kurtic@students.htl-leonding.ac.at">Ademir Kurtic</a>
     </div>
+
+    <!-- To-do: Put into other File-->
+    <script>
+        document.getElementById('addList').addEventListener('click', function() {
+          const lists = document.getElementsByClassName('list');
+          const lastListId = lists[lists.length - 1].id;
+          const newListId = 'myList' + (parseInt(lastListId.replace('myList', '')) + 1);
+          const newList = document.createElement('ul');
+          newList.className = 'list';
+          newList.id = newListId;
+          document.querySelector('.container').appendChild(newList);
+        });
+      </script>
 </body>
 </html>

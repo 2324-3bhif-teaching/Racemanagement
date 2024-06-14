@@ -18,6 +18,6 @@ export class InputService extends ServiceBase{
     public async getInputs(): Promise<Input[]> {
         const stmt: Statement = await this.unit.prepare('SELECT * FROM Input');
         const result = await stmt.all();
-        return ServiceBase.unwrapAll<Input>(result, 'Input');
+        return ServiceBase.unwrapAll<Input>(result);
     }
 }
