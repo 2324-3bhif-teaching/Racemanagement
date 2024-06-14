@@ -4,6 +4,8 @@ import cors from "cors";
 import path from 'path';
 import { DB } from "./data/data";
 import { carRouter } from "./routers/car-router";
+import { inputRouter } from "./routers/input-router";
+import { obstacleRouter } from "./routers/obstacle-router";
 
 // Create an instance of an Express application
 const app = express();
@@ -17,6 +19,8 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 
 // Use the car router for API routes under /api/cars
 app.use('/api/cars', carRouter);
+app.use('/api/input', inputRouter);
+app.use('/api/obstacles', obstacleRouter);
 
 // Define the port number
 const port = 3000;

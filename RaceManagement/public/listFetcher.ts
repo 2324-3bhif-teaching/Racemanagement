@@ -86,17 +86,37 @@ async function fetchObstacles(): Promise<Obstacle[]> {
     }
 }
 
+enum ItemType {
+    Car,
+    Obstacle,
+    Input
+}
 
-function fillList(cars: Car[]): void {
-    const list = document.getElementById('myList2');
+function fillList<T>(items: T[], textProperty: keyof T, idProperty: keyof T, itemType: ItemType): void {
+    let list: HTMLElement | null;
+    switch (itemType) {
+        case ItemType.Car:
+            list = document.getElementById('myList2');
+            break;
+        case ItemType.Obstacle:
+            list = document.getElementById('myList5');
+            break;
+        case ItemType.Input:
+            list = document.getElementById('myList6');
+            break;
+        default:
+            console.error("Unknown item type");
+            return;
+    }
+
     if (list) {
         list.innerHTML = '';
-        cars.forEach(car => {
-            const item = document.createElement('li');
-            item.textContent = car.carName; // Ensure carName is the correct property
-            item.id = car.carId.toString(); // Ensure carId is the correct property and exists
-            item.draggable = true;
-            list.appendChild(item);
+        items.forEach(item => {
+            const listItem = document.createElement('li');
+            listItem.textContent = String(item[textProperty]);
+            listItem.id = String(item[idProperty]);
+            listItem.draggable = true;
+            list.appendChild(listItem);
             console.log('Item added');
         });
     } else {
@@ -105,11 +125,16 @@ function fillList(cars: Car[]): void {
     console.log('List filled');
 }
 
+
 async function main() {
     try {
         console.log('Fetching cars..');
         const cars = await fetchCars();
-        fillList(cars);
+        const inputs = await fetchInputs();
+        const obstacles = await fetchObstacles();
+        fillList(cars, 'carName', 'carId', ItemType.Car);
+        fillList(inputs, 'inputName', 'inputId', ItemType.Input);
+        fillList(obstacles, 'obstacleName', 'obstacleId', ItemType.Obstacle);
         console.log('Cars fetched', cars);
     } catch (error) {
         console.error('Failed to fetch cars:', error);
