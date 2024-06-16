@@ -1,9 +1,0 @@
-# Projektidee Rennverwaltung
-
-## Beschreibung
-
-
-1. Ist-Zustand: Bei den Rennen ist nicht bestimmt welche Autos oder welche Bedienung an der jeweiligen Station benutzt wird.
-
-2. Soll-Zustand:
-Mithilfe der Rennverwaltung soll der jeweilige Station Bediener/in auswählen können, welche Autos benutzt werden und welche Bedienung benutzt wird.
