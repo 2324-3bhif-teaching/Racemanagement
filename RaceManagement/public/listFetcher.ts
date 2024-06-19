@@ -146,14 +146,14 @@ function fillList<T>(items: T[], textProperty: keyof T, idProperty: keyof T, ite
 async function main() {
     try {
         console.log('Fetching cars..');
-        const cars = await fetchCars();
-        const inputs = await fetchInputs();
-        const obstacles = await fetchObstacles();
-        fillList(cars, 'carName', 'carId', ItemType.Car);
-        fillList(inputs, 'inputName', 'inputId', ItemType.Input);
-        fillList(obstacles, 'obstacleName', 'obstacleId', ItemType.Obstacle);
+      //  const cars = await fetchCars();
+      //  const inputs = await fetchInputs();
+      //  const obstacles = await fetchObstacles();
+      //  fillList(cars, 'carName', 'carId', ItemType.Car);
+      //  fillList(inputs, 'inputName', 'inputId', ItemType.Input);
+      //  fillList(obstacles, 'obstacleName', 'obstacleId', ItemType.Obstacle);
         const jsonData = await fetchJsonData();
-        console.log('Cars fetched', cars);
+        //console.log('Cars fetched', cars);
     } catch (error) {
         console.error('Failed to fetch cars:', error);
     }

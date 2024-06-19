@@ -1,5 +1,5 @@
-
 document.addEventListener('DOMContentLoaded', (event) => {
+    // Function to handle drag start
     const dragStart = (event: DragEvent) => {
         if (event.target instanceof HTMLElement) {
             event.dataTransfer?.setData('text/plain', event.target.id);
@@ -7,17 +7,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }
     };
 
+    // Function to handle drag end
     const dragEnd = (event: DragEvent) => {
         if (event.target instanceof HTMLElement) {
             event.target.style.opacity = '1';
         }
     };
 
+    // Function to handle drag over
     const dragOver = (event: DragEvent) => {
         event.preventDefault();
         console.log('Drag over');
     };
 
+    // Function to handle drop
     const drop = (event: DragEvent) => {
         event.preventDefault();
         const id = event.dataTransfer?.getData('text');
@@ -36,6 +39,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
             event.dataTransfer?.clearData();
         }
     };
+
+    // Function to save lists state to localStorage
     const saveListsState = () => {
         const lists = document.querySelectorAll('ul.list, ul.horizontal-list');
         const allListsData: { [key: string]: string[] } = {};
@@ -49,17 +54,30 @@ document.addEventListener('DOMContentLoaded', (event) => {
         localStorage.setItem('savedLists', JSON.stringify(allListsData));
     };
 
-    document.querySelectorAll<HTMLElement>('li[draggable="true"]').forEach(item => {
-        item.addEventListener('dragstart', dragStart);
-        item.addEventListener('dragend', dragEnd);
+    // Event delegation for drag and drop
+    document.body.addEventListener('dragstart', (event) => {
+        if (event.target instanceof HTMLElement && event.target.getAttribute('draggable') === 'true') {
+            dragStart(event);
+        }
     });
 
-    document.querySelectorAll<HTMLElement>('.list, .horizontal-list').forEach(list => {
-        list.addEventListener('dragover', dragOver);
-        list.addEventListener('drop', drop);
+    document.body.addEventListener('dragend', (event) => {
+        if (event.target instanceof HTMLElement && event.target.getAttribute('draggable') === 'true') {
+            dragEnd(event);
+        }
     });
+
+    document.body.addEventListener('dragover', (event) => {
+        if (event.target instanceof HTMLElement && (event.target.classList.contains('list') || event.target.classList.contains('horizontal-list'))) {
+            dragOver(event);
+        }
+    });
+
+    document.body.addEventListener('drop', (event) => {
+        if (event.target instanceof HTMLElement && (event.target.classList.contains('list') || event.target.classList.contains('horizontal-list'))) {
+            drop(event);
+        }
+    });
+
     console.log('Drag and drop initialized');
 });
-
-
-

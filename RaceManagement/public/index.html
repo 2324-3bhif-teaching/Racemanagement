@@ -31,8 +31,11 @@
             
         </ul>
     </div>
-    <button class="btn" id="downloadBtn">Map Station</button>
-    <button class="btn" id="addList">Add List</button> 
+    <div class="buttons-container">
+        <button class="btn" id="downloadBtn">Map Station</button>
+        <button class="btn" id="addList">Add List</button>
+        <button class="btn" id="removeList">Remove List</button>
+    </div>
     <br>
     <!-- <button class="button button1" id="addButton" type="submit" name="loginButton">Add Item</button>
 -->
@@ -59,7 +62,7 @@
         <a href="mailto:a.kurtic@students.htl-leonding.ac.at">Ademir Kurtic</a>
     </div>
 
-    <!-- To-do: Put into other File
+    <!-- To-do: Put into other File-->
     <script>
         document.getElementById('addList').addEventListener('click', function() {
           const lists = document.getElementsByClassName('list');
@@ -70,6 +73,13 @@
           newList.id = newListId;
           document.querySelector('.container').appendChild(newList);
         });
-      </script>-->
+        document.getElementById('removeList').addEventListener('click', function() {
+        const lists = document.getElementsByClassName('list');
+        if (lists.length > 0) {
+        const lastList = lists[lists.length - 1];
+        lastList.parentNode.removeChild(lastList);
+        }
+        });
+      </script>
 </body>
 </html>
