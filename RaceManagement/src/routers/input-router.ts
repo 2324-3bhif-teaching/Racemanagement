@@ -20,6 +20,7 @@ inputRouter.get('/all', async (req: Request, res: Response) => {
         await unit.complete();
     }
 });
+
 inputRouter.get("/", async (_: Request, res: Response) => {
     const unit: Unit = await Unit.create(true);
 

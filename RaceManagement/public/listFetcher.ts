@@ -86,6 +86,23 @@ async function fetchObstacles(): Promise<Obstacle[]> {
     }
 }
 
+async function fetchJsonData(): Promise<any> {
+    try{
+        const response = await fetchRestEndpoint('http://localhost:3000/api/json', 'POST');
+        if(response.status === 200){
+            console.log('Json Data uploaded successfully');
+            return response;
+        }
+        else{
+            console.log('Json Data not uploaded');
+        }
+    }catch(e){
+        console.error(e);
+        throw e;
+    }
+}
+
+
 enum ItemType {
     Car,
     Obstacle,
@@ -135,10 +152,34 @@ async function main() {
         fillList(cars, 'carName', 'carId', ItemType.Car);
         fillList(inputs, 'inputName', 'inputId', ItemType.Input);
         fillList(obstacles, 'obstacleName', 'obstacleId', ItemType.Obstacle);
+        const jsonData = await fetchJsonData();
         console.log('Cars fetched', cars);
     } catch (error) {
         console.error('Failed to fetch cars:', error);
     }
 }
 
-main();
+main().then(() => {
+    const downloadBtn = document.getElementById('downloadBtn');
+    if (downloadBtn) {
+        downloadBtn.addEventListener('click', async () => {
+            const lists = document.querySelectorAll('ul.list, ul.horizontal-list');
+            const allListsData: { [key: string]: string[] } = {};
+
+            lists.forEach((list, index) => {
+                const items = list.querySelectorAll('li');
+                const listData = Array.from(items).map(item => item.textContent || '');
+                allListsData[`list${index + 1}`] = listData;
+            });
+
+            const json = JSON.stringify(allListsData, null, 2);
+            const blob = new Blob([json], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'all-lists.json';
+            a.click();
+            URL.revokeObjectURL(url);
+        });
+    }
+});

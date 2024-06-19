@@ -6,6 +6,7 @@ import { DB } from "./data/data";
 import { carRouter } from "./routers/car-router";
 import { inputRouter } from "./routers/input-router";
 import { obstacleRouter } from "./routers/obstacle-router";
+import { jsonRouter } from "./routers/json-router";
 
 // Create an instance of an Express application
 const app = express();
@@ -21,7 +22,7 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use('/api/cars', carRouter);
 app.use('/api/input', inputRouter);
 app.use('/api/obstacles', obstacleRouter);
-
+app.use('/api/json', jsonRouter);
 // Define the port number
 const port = 3000;
 
